@@ -1,5 +1,5 @@
 ---
-title: "CS513 Final Project: Cleansing AirBNB dataset."
+### CS513 Final Project: Cleansing AirBNB dataset
 ---
 
 Base csv file: airbnb.csv
