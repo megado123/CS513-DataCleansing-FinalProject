@@ -1,0 +1,179 @@
+neighbourhood,room_type,avg_price
+Archer Heights,Entire home/apt,359.0
+South Shore,Shared room,290.5714
+Near North Side,Entire home/apt,285.818
+Near North Side,Private room,264.6052
+Near South Side,Entire home/apt,249.161
+Loop,Entire home/apt,231.3745
+Lincoln Park,Entire home/apt,221.8518
+Washington Park,Private room,220.3333
+Lake View,Entire home/apt,217.4018
+North Center,Entire home/apt,204.384
+West Town,Entire home/apt,200.9664
+Armour Square,Entire home/apt,192.7586
+Forest Glen,Entire home/apt,183.2222
+Oakland,Entire home/apt,183.0833
+Near West Side,Entire home/apt,181.7757
+Loop,Private room,176.0909
+Uptown,Entire home/apt,171.1894
+Calumet Heights,Entire home/apt,166.5
+West Ridge,Entire home/apt,158.7857
+Douglas,Entire home/apt,155.7727
+Kenwood,Entire home/apt,154.0333
+Logan Square,Entire home/apt,152.84
+Grand Boulevard,Entire home/apt,150.9814
+Lake View,Private room,150.9782
+New City,Shared room,150.0
+South Deering,Entire home/apt,150.0
+Morgan Park,Private room,150.0
+Norwood Park,Entire home/apt,148.75
+Auburn Gresham,Entire home/apt,148.0
+Englewood,Entire home/apt,143.25
+East Garfield Park,Entire home/apt,141.2777
+West Garfield Park,Entire home/apt,140.0
+Portage Park,Entire home/apt,139.551
+O'hare,Entire home/apt,137.8333
+Avondale,Entire home/apt,137.8207
+Fuller Park,Entire home/apt,137.8
+Edgewater,Entire home/apt,137.458
+Irving Park,Entire home/apt,134.1794
+Lincoln Square,Entire home/apt,133.96
+New City,Entire home/apt,132.0
+Albany Park,Entire home/apt,128.8378
+Montclare,Entire home/apt,128.0
+Woodlawn,Entire home/apt,125.1785
+Greater Grand Crossing,Entire home/apt,124.5
+Bridgeport,Entire home/apt,123.2641
+Lower West Side,Entire home/apt,122.0437
+Hyde Park,Entire home/apt,121.1547
+Dunning,Entire home/apt,120.2142
+Uptown,Private room,118.4159
+Rogers Park,Entire home/apt,113.8289
+Gage Park,Entire home/apt,112.5
+Beverly,Entire home/apt,112.5
+Hegewisch,Entire home/apt,112.0
+Brighton Park,Entire home/apt,111.7272
+Washington Park,Entire home/apt,111.625
+Humboldt Park,Entire home/apt,110.8604
+Chatham,Entire home/apt,110.6666
+Garfield Ridge,Entire home/apt,109.8
+South Shore,Entire home/apt,109.64
+Morgan Park,Entire home/apt,107.5
+Roseland,Entire home/apt,104.0
+Belmont Cragin,Entire home/apt,103.8333
+Jefferson Park,Entire home/apt,103.3333
+Edison Park,Entire home/apt,102.3333
+North Lawndale,Entire home/apt,100.6666
+North Park,Entire home/apt,100.3333
+Austin,Entire home/apt,98.7391
+Lincoln Park,Private room,93.4383
+Near South Side,Private room,93.2916
+West Lawn,Entire home/apt,93.0
+Hermosa,Entire home/apt,91.3076
+West Town,Private room,90.3846
+Near North Side,Shared room,90.0869
+West Pullman,Entire home/apt,90.0
+Mckinley Park,Entire home/apt,87.2857
+O'hare,Private room,87.0
+North Center,Private room,85.8387
+West Elsdon,Entire home/apt,85.0
+Englewood,Private room,84.25
+Mount Greenwood,Entire home/apt,80.0
+Avalon Park,Entire home/apt,80.0
+Pullman,Entire home/apt,79.2
+South Lawndale,Entire home/apt,75.7
+Edison Park,Private room,75.0
+Grand Boulevard,Private room,73.0888
+Belmont Cragin,Private room,72.3333
+Clearing,Entire home/apt,69.5
+Dunning,Private room,69.2666
+Ashburn,Entire home/apt,68.8
+Hyde Park,Private room,68.758
+Chicago Lawn,Entire home/apt,68.5
+Logan Square,Private room,67.8305
+Grand Boulevard,Shared room,67.5
+Edgewater,Private room,67.3255
+Brighton Park,Shared room,66.0
+Kenwood,Private room,65.5625
+West Pullman,Private room,64.5
+Montclare,Private room,64.5
+Armour Square,Private room,64.0188
+Edgewater,Shared room,63.0
+Douglas,Private room,62.9333
+Humboldt Park,Shared room,62.0
+Forest Glen,Private room,60.625
+Norwood Park,Private room,60.5333
+Riverdale,Private room,60.0
+Clearing,Private room,60.0
+Avondale,Private room,59.7551
+Greater Grand Crossing,Private room,59.5454
+Chicago Lawn,Private room,59.5
+Lincoln Square,Private room,58.8837
+Loop,Shared room,58.0
+Auburn Gresham,Private room,57.5
+Belmont Cragin,Shared room,57.0
+Albany Park,Private room,56.6326
+Portage Park,Private room,56.5641
+Lower West Side,Private room,56.4948
+Bridgeport,Private room,56.0
+Irving Park,Private room,55.9032
+Fuller Park,Private room,55.625
+Ashburn,Private room,55.5
+Rogers Park,Private room,54.9047
+South Lawndale,Private room,54.0
+Washington Heights,Private room,54.0
+Near West Side,Private room,53.3963
+Beverly,Private room,53.0
+South Shore,Private room,52.3684
+Oakland,Private room,51.8125
+West Englewood,Private room,50.8666
+Humboldt Park,Private room,50.4615
+New City,Private room,50.4444
+Pullman,Private room,50.0
+Gage Park,Private room,50.0
+Lake View,Shared room,49.7307
+South Chicago,Entire home/apt,49.0
+Woodlawn,Private room,48.8837
+Logan Square,Shared room,48.0
+North Park,Private room,47.5
+Jefferson Park,Private room,47.3333
+Austin,Private room,46.909
+West Ridge,Private room,46.1
+Lincoln Park,Shared room,43.8
+West Elsdon,Private room,43.5555
+Mckinley Park,Private room,42.5714
+West Town,Shared room,42.3076
+North Lawndale,Private room,41.5428
+Lincoln Square,Shared room,41.5
+Near West Side,Shared room,41.2857
+East Garfield Park,Private room,40.9285
+West Lawn,Private room,40.8333
+Rogers Park,Shared room,40.8333
+Chatham,Private room,40.0
+Uptown,Shared room,39.0
+West Garfield Park,Private room,37.8571
+Brighton Park,Private room,36.0
+Garfield Ridge,Private room,36.0
+Avondale,Shared room,35.8571
+Greater Grand Crossing,Shared room,35.0
+Hermosa,Private room,33.5
+Irving Park,Shared room,31.8571
+South Chicago,Private room,31.6666
+Douglas,Shared room,29.6666
+Englewood,Shared room,28.1315
+Calumet Heights,Private room,28.0
+Bridgeport,Shared room,28.0
+Archer Heights,Private room,27.0
+West Ridge,Shared room,25.7692
+South Lawndale,Shared room,25.4444
+Norwood Park,Shared room,25.0
+Washington Park,Shared room,25.0
+Hermosa,Shared room,25.0
+West Englewood,Shared room,24.6875
+East Garfield Park,Shared room,24.4137
+Kenwood,Shared room,24.0
+South Chicago,Shared room,23.75
+Lower West Side,Shared room,22.5
+North Lawndale,Shared room,18.3636
+Calumet Heights,Shared room,13.8571
+West Lawn,Shared room,12.0
