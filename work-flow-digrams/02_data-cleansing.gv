@@ -1,0 +1,118 @@
+digraph Workflow {
+rankdir=TB
+fontname=Courier; fontsize=18; labelloc=t
+label="AirBnB:02_data_cleansing"
+subgraph cluster_workflow_box_outer { label=""; color=black; penwidth=2
+subgraph cluster_workflow_box_inner { label=""; color=white
+node[shape=box style=filled fillcolor="#CCFFCC" peripheries=1 fontname=Courier]
+get_file
+drop_columns_if_exist
+mark_nightsLong
+mark_availability_365
+out_std
+mark_quality_price_outlier
+clean_names
+clean_30_days
+remove_non_utf8
+remove_special_characters
+clean_remove_special_characters
+remove_consecutive_spaces
+clean_consecutive_spaces
+trim_head_tail_space
+clean_head_tail_spaces
+clean_empty_names
+clean_mark_missing
+clean_rename_name_columns
+clean_reviews_per_month
+output_csv
+node[shape=box style="rounded,filled" fillcolor="#FFFFCC" peripheries=1 fontname=Helvetica]
+output_to_sql_notebook [shape=record rankdir=LR label="{<f0> output_to_sql_notebook |<f1> file\:02_airbnb_step2_complete.csv}"];
+input_from_step1_open_refine [shape=record rankdir=LR label="{<f0> input_from_step1_open_refine |<f1> file\:AirBNBV2.csv}"];
+pd_airbnb_data
+pd_dropped_columns_dataset
+pd_marked_nights_long
+pd_marked_availability
+upper_std
+lower_std
+pd_marked_price_outlier
+pd_clean_names
+pd_clean_30_days
+dirty_col
+pd_utf8
+clean_col
+dirty_col_cons
+pd_no_spec_chars
+clean_col_cons
+dirty_col_trim
+pd_no_consec_spaces
+clean_col_trim
+pd_trim_spaces
+pd_clean_empty_names
+pd_mark_missing
+pd_rename_nam_cols
+pd_clean_rev_per_month
+node[shape=box style="rounded,filled" fillcolor="#FCFCFC" peripheries=1 fontname=Helvetica]
+get_file -> pd_airbnb_data
+input_from_step1_open_refine -> get_file
+drop_columns_if_exist -> pd_dropped_columns_dataset
+pd_airbnb_data -> drop_columns_if_exist
+mark_nightsLong -> pd_marked_nights_long
+pd_dropped_columns_dataset -> mark_nightsLong
+mark_availability_365 -> pd_marked_availability
+pd_marked_nights_long -> mark_availability_365
+out_std -> upper_std
+out_std -> lower_std
+df -> out_std
+column -> out_std
+mark_quality_price_outlier -> pd_marked_price_outlier
+pd_marked_availability -> mark_quality_price_outlier
+upper_std -> mark_quality_price_outlier
+lower_std -> mark_quality_price_outlier
+clean_names -> pd_clean_names
+pd_marked_price_outlier -> clean_names
+clean_30_days -> pd_clean_30_days
+pd_clean_names -> clean_30_days
+remove_non_utf8 -> pd_utf8
+pd_clean_30_days -> remove_non_utf8
+remove_special_characters -> clean_col
+dirty_col -> remove_special_characters
+clean_remove_special_characters -> dirty_col
+clean_remove_special_characters -> pd_no_spec_chars
+pd_utf8 -> clean_remove_special_characters
+clean_col -> clean_remove_special_characters
+remove_consecutive_spaces -> clean_col_cons
+dirty_col_cons -> remove_consecutive_spaces
+clean_consecutive_spaces -> pd_no_consec_spaces
+clean_consecutive_spaces -> dirty_col_cons
+pd_no_spec_chars -> clean_consecutive_spaces
+clean_col_cons -> clean_consecutive_spaces
+trim_head_tail_space -> clean_col_trim
+dirty_col_trim -> trim_head_tail_space
+clean_head_tail_spaces -> pd_trim_spaces
+clean_head_tail_spaces -> dirty_col_trim
+pd_no_consec_spaces -> clean_head_tail_spaces
+clean_col_trim -> clean_head_tail_spaces
+clean_empty_names -> pd_clean_empty_names
+pd_trim_spaces -> clean_empty_names
+clean_mark_missing -> pd_mark_missing
+pd_clean_empty_names -> clean_mark_missing
+clean_rename_name_columns -> pd_rename_nam_cols
+pd_mark_missing -> clean_rename_name_columns
+clean_reviews_per_month -> pd_clean_rev_per_month
+pd_rename_nam_cols -> clean_reviews_per_month
+output_csv -> output_to_sql_notebook
+pd_clean_rev_per_month -> output_csv
+}}
+subgraph cluster_input_ports_group_outer { label=""; color=white
+subgraph cluster_input_ports_group_inner { label=""; color=white
+node[shape=circle style="rounded,filled" fillcolor="#FFFFFF" peripheries=1 fontname=Helvetica width=0.2]
+input_from_step1_open_refine_input_port [label=""]
+}}
+subgraph cluster_output_ports_group_outer { label=""; color=white
+subgraph cluster_output_ports_group_inner { label=""; color=white
+node[shape=circle style="rounded,filled" fillcolor="#FFFFFF" peripheries=1 fontname=Helvetica width=0.2]
+output_to_sql_notebook_output_port [label=""]
+}}
+input_from_step1_open_refine_input_port -> input_from_step1_open_refine
+output_to_sql_notebook -> output_to_sql_notebook_output_port
+}
