@@ -1,0 +1,272 @@
+#@begin Linear_OR #@desc Linear OpenRefine Workflow
+#@param col-name:minimum_nights
+#@param col-name:neighbourhood_group
+#@param separator:"_And_"
+#@param col-name:reviews_per_month
+#@param col-name:availability_365
+#@param expression:value.replace(/\\s+/,'_')
+#@param expression:value.replace("*","")
+#@param expression:grel:value.replaceChars('*!?()-~"',_'________')
+#@param col-name:name
+#@param expression:grel:if(and(value.startsWith("("),_value.endsWith(")"))_,value.substring(0,_value.length).substring(1,_-1)_,value)
+#@param expression:value.toNumber()
+#@param col-name:number_of_reviews
+#@param col-name:id
+#@param col-name:neighbourhood
+#@param col-name:room_type
+#@param expression:grel:value.replace('/',_'\\/_')
+#@param removeOriginalColumn:True
+#@param col-name:calculated_host_listings_count
+#@param expression:value.toString()
+#@param expression:value.trim()
+#@param expression:value.toTitlecase()
+#@param col-name:latitude
+#@param col-name:host_id
+#@param col-name:price
+#@param col-name:host_name
+#@param col-name:longitude
+#@param col-name:last_review
+#@param expression:grel:toString(toDate(value),_"yyy-MM-dd")
+#@in table0
+#@out table41
+#@begin core/text-transform0#@desc Text transform on cells in column id using expression value.toNumber()
+#@param col-name:id
+#@param expression:value.toNumber()
+#@in table0
+#@out table1
+#@end core/text-transform0
+#@begin core/text-transform1#@desc Text transform on cells in column name using expression value.toString()
+#@param col-name:name
+#@param expression:value.toString()
+#@in table1
+#@out table2
+#@end core/text-transform1
+#@begin core/text-transform2#@desc Text transform on cells in column name using expression value.trim()
+#@param col-name:name
+#@param expression:value.trim()
+#@in table2
+#@out table3
+#@end core/text-transform2
+#@begin core/text-transform3#@desc Text transform on cells in column name using expression value.replace(/\\s+/,' ')
+#@param col-name:name
+#@param expression:value.replace(/\\s+/,'_')
+#@in table3
+#@out table4
+#@end core/text-transform3
+#@begin core/text-transform4#@desc Text transform on cells in column name using expression grel:if(and(value.startsWith(\"(\"), value.endsWith(\")\")) ,value.substring(0, value.length).substring(1, -1) ,value)
+#@param col-name:name
+#@param expression:grel:if(and(value.startsWith("("),_value.endsWith(")"))_,value.substring(0,_value.length).substring(1,_-1)_,value)
+#@in table4
+#@out table5
+#@end core/text-transform4
+#@begin core/text-transform5#@desc Text transform on cells in column name using expression value.trim()
+#@param col-name:name
+#@param expression:value.trim()
+#@in table5
+#@out table6
+#@end core/text-transform5
+#@begin core/text-transform6#@desc Text transform on cells in column name using expression value.replace(\"*\",\"\")
+#@param col-name:name
+#@param expression:value.replace("*","")
+#@in table6
+#@out table7
+#@end core/text-transform6
+#@begin core/text-transform7#@desc Text transform on cells in column name using expression grel:value.replaceChars('*!?()-~\"', '        ')
+#@param col-name:name
+#@param expression:grel:value.replaceChars('*!?()-~"',_'________')
+#@in table7
+#@out table8
+#@end core/text-transform7
+#@begin core/text-transform8#@desc Text transform on cells in column name using expression value.replace(/\\s+/,' ')
+#@param col-name:name
+#@param expression:value.replace(/\\s+/,'_')
+#@in table8
+#@out table9
+#@end core/text-transform8
+#@begin core/text-transform9#@desc Text transform on cells in column name using expression value.trim()
+#@param col-name:name
+#@param expression:value.trim()
+#@in table9
+#@out table10
+#@end core/text-transform9
+#@begin core/text-transform10#@desc Text transform on cells in column name using expression value.toTitlecase()
+#@param col-name:name
+#@param expression:value.toTitlecase()
+#@in table10
+#@out table11
+#@end core/text-transform10
+#@begin core/text-transform11#@desc Text transform on cells in column name using expression grel:value.replace('/', '\\/ ')
+#@param col-name:name
+#@param expression:grel:value.replace('/',_'\\/_')
+#@in table11
+#@out table12
+#@end core/text-transform11
+#@begin core/text-transform12#@desc Text transform on cells in column name using expression value.replace(/\\s+/,' ')
+#@param col-name:name
+#@param expression:value.replace(/\\s+/,'_')
+#@in table12
+#@out table13
+#@end core/text-transform12
+#@begin core/text-transform13#@desc Text transform on cells in column name using expression value.trim()
+#@param col-name:name
+#@param expression:value.trim()
+#@in table13
+#@out table14
+#@end core/text-transform13
+#@begin core/text-transform14#@desc Text transform on cells in column name using expression value.toTitlecase()
+#@param col-name:name
+#@param expression:value.toTitlecase()
+#@in table14
+#@out table15
+#@end core/text-transform14
+#@begin core/text-transform15#@desc Text transform on cells in column host_id using expression value.toNumber()
+#@param col-name:host_id
+#@param expression:value.toNumber()
+#@in table15
+#@out table16
+#@end core/text-transform15
+#@begin core/text-transform16#@desc Text transform on cells in column host_name using expression value.replace(/\\s+/,' ')
+#@param col-name:host_name
+#@param expression:value.replace(/\\s+/,'_')
+#@in table16
+#@out table17
+#@end core/text-transform16
+#@begin core/column-split0#@desc Split column host_name by separator
+#@param col-name:host_name
+#@param separator:"_And_"
+#@param removeOriginalColumn:True
+#@in table17
+#@out table18
+#@end core/column-split0
+#@begin core/column-removal0#@desc Remove column neighbourhood_group
+#@param col-name:neighbourhood_group
+#@in table18
+#@out table19
+#@end core/column-removal0
+#@begin core/text-transform17#@desc Text transform on cells in column neighbourhood using expression value.replace(/\\s+/,' ')
+#@param col-name:neighbourhood
+#@param expression:value.replace(/\\s+/,'_')
+#@in table19
+#@out table20
+#@end core/text-transform17
+#@begin core/text-transform18#@desc Text transform on cells in column neighbourhood using expression value.trim()
+#@param col-name:neighbourhood
+#@param expression:value.trim()
+#@in table20
+#@out table21
+#@end core/text-transform18
+#@begin core/mass-edit0#@desc Mass edit cells in column neighbourhood
+#@param col-name:neighbourhood
+#@in table21
+#@out table22
+#@end core/mass-edit0
+#@begin core/mass-edit1#@desc Mass edit cells in column neighbourhood
+#@param col-name:neighbourhood
+#@in table22
+#@out table23
+#@end core/mass-edit1
+#@begin core/mass-edit2#@desc Mass edit cells in column neighbourhood
+#@param col-name:neighbourhood
+#@in table23
+#@out table24
+#@end core/mass-edit2
+#@begin core/mass-edit3#@desc Mass edit cells in column neighbourhood
+#@param col-name:neighbourhood
+#@in table24
+#@out table25
+#@end core/mass-edit3
+#@begin core/mass-edit4#@desc Mass edit cells in column neighbourhood
+#@param col-name:neighbourhood
+#@in table25
+#@out table26
+#@end core/mass-edit4
+#@begin core/mass-edit5#@desc Mass edit cells in column neighbourhood
+#@param col-name:neighbourhood
+#@in table26
+#@out table27
+#@end core/mass-edit5
+#@begin core/text-transform19#@desc Text transform on cells in column neighbourhood using expression value.replace(/\\s+/,' ')
+#@param col-name:neighbourhood
+#@param expression:value.replace(/\\s+/,'_')
+#@in table27
+#@out table28
+#@end core/text-transform19
+#@begin core/text-transform20#@desc Text transform on cells in column neighbourhood using expression value.trim()
+#@param col-name:neighbourhood
+#@param expression:value.trim()
+#@in table28
+#@out table29
+#@end core/text-transform20
+#@begin core/text-transform21#@desc Text transform on cells in column neighbourhood using expression value.toTitlecase()
+#@param col-name:neighbourhood
+#@param expression:value.toTitlecase()
+#@in table29
+#@out table30
+#@end core/text-transform21
+#@begin core/text-transform22#@desc Text transform on cells in column latitude using expression value.toNumber()
+#@param col-name:latitude
+#@param expression:value.toNumber()
+#@in table30
+#@out table31
+#@end core/text-transform22
+#@begin core/text-transform23#@desc Text transform on cells in column longitude using expression value.toNumber()
+#@param col-name:longitude
+#@param expression:value.toNumber()
+#@in table31
+#@out table32
+#@end core/text-transform23
+#@begin core/text-transform24#@desc Text transform on cells in column room_type using expression value.replace(/\\s+/,' ')
+#@param col-name:room_type
+#@param expression:value.replace(/\\s+/,'_')
+#@in table32
+#@out table33
+#@end core/text-transform24
+#@begin core/text-transform25#@desc Text transform on cells in column room_type using expression value.trim()
+#@param col-name:room_type
+#@param expression:value.trim()
+#@in table33
+#@out table34
+#@end core/text-transform25
+#@begin core/text-transform26#@desc Text transform on cells in column price using expression value.toNumber()
+#@param col-name:price
+#@param expression:value.toNumber()
+#@in table34
+#@out table35
+#@end core/text-transform26
+#@begin core/text-transform27#@desc Text transform on cells in column minimum_nights using expression value.toNumber()
+#@param col-name:minimum_nights
+#@param expression:value.toNumber()
+#@in table35
+#@out table36
+#@end core/text-transform27
+#@begin core/text-transform28#@desc Text transform on cells in column number_of_reviews using expression value.toNumber()
+#@param col-name:number_of_reviews
+#@param expression:value.toNumber()
+#@in table36
+#@out table37
+#@end core/text-transform28
+#@begin core/text-transform29#@desc Text transform on cells in column last_review using expression grel:toString(toDate(value), \"yyy-MM-dd\")
+#@param col-name:last_review
+#@param expression:grel:toString(toDate(value),_"yyy-MM-dd")
+#@in table37
+#@out table38
+#@end core/text-transform29
+#@begin core/text-transform30#@desc Text transform on cells in column reviews_per_month using expression value.toNumber()
+#@param col-name:reviews_per_month
+#@param expression:value.toNumber()
+#@in table38
+#@out table39
+#@end core/text-transform30
+#@begin core/text-transform31#@desc Text transform on cells in column calculated_host_listings_count using expression value.toNumber()
+#@param col-name:calculated_host_listings_count
+#@param expression:value.toNumber()
+#@in table39
+#@out table40
+#@end core/text-transform31
+#@begin core/text-transform32#@desc Text transform on cells in column availability_365 using expression value.toNumber()
+#@param col-name:availability_365
+#@param expression:value.toNumber()
+#@in table40
+#@out table41
+#@end core/text-transform32
+#@end Linear_OR
