@@ -1,0 +1,106 @@
+digraph Workflow {
+rankdir=TB
+fontname=Courier; fontsize=18; labelloc=t
+label="AirBnB:03_03_TableGenerationAndPopulation"
+subgraph cluster_workflow_box_outer { label=""; color=black; penwidth=2
+subgraph cluster_workflow_box_inner { label=""; color=white
+node[shape=box style=filled fillcolor="#CCFFCC" peripheries=1 fontname=Courier]
+get_file
+connect_db
+sql_drop_tables
+sql_create_base_table
+populate_host_from_base
+populate_neighbourhood_from_base
+populate_location_from_base
+populate_room_type_from_base
+populate_listing_from_base
+populate_review_summary_from_base
+retrieve_dataset_from_tables_with_ics
+node[shape=box style="rounded,filled" fillcolor="#FFFFCC" peripheries=1 fontname=Helvetica]
+output_to_sql_notebook [shape=record rankdir=LR label="{<f0> output_to_sql_notebook |<f1> file\:finaldataaset.csv}"];
+input_from_step2_python [shape=record rankdir=LR label="{<f0> input_from_step2_python |<f1> file\:02_airbnb_step2_complete.csv}"];
+connection
+pd_airbnb_data
+empty_database
+sql_basetable
+IC_nieghtbourhood
+IC_host_id
+IC_location_id
+IC_room_type_id
+IC_listing_id
+sql_host_table
+sql_location_table
+sql_listing_table
+sql_room_type_table
+sql_review_summary_table
+node[shape=box style="rounded,filled" fillcolor="#FCFCFC" peripheries=1 fontname=Helvetica]
+get_file -> pd_airbnb_data
+input_from_step2_python -> get_file
+connect_db -> connection
+sql_connection_parameters -> connect_db
+sql_drop_tables -> empty_database
+connection -> sql_drop_tables
+sql_drop_table_statement -> sql_drop_tables
+sql_create_base_table -> sql_basetable
+connection -> sql_create_base_table
+pd_airbnb_data -> sql_create_base_table
+empty_database -> sql_create_base_table
+sql_create_base_table_statement -> sql_create_base_table
+populate_host_from_base -> sql_host_table
+populate_host_from_base -> IC_host_id
+sql_basetable -> populate_host_from_base
+connection -> populate_host_from_base
+sql_create_host_table_statement -> populate_host_from_base
+populate_neighbourhood_from_base -> sql_neighbourhood_table
+populate_neighbourhood_from_base -> IC_neighbourhood_id
+populate_neighbourhood_from_base -> IC_nieghtbourhood
+sql_basetable -> populate_neighbourhood_from_base
+connection -> populate_neighbourhood_from_base
+sql_create_neighbourhood_table_statement -> populate_neighbourhood_from_base
+populate_location_from_base -> sql_location_table
+populate_location_from_base -> IC_location_id
+sql_basetable -> populate_location_from_base
+connection -> populate_location_from_base
+sql_create_location_table_statement -> populate_location_from_base
+IC_nieghtbourhood -> populate_location_from_base
+populate_room_type_from_base -> sql_room_type_table
+populate_room_type_from_base -> IC_room_type_id
+populate_room_type_from_base -> IC_room_type
+sql_basetable -> populate_room_type_from_base
+connection -> populate_room_type_from_base
+sql_create_room_type_table_statement -> populate_room_type_from_base
+populate_listing_from_base -> sql_listing_table
+populate_listing_from_base -> IC_listing_id
+sql_basetable -> populate_listing_from_base
+connection -> populate_listing_from_base
+sql_create_listing_table_statement -> populate_listing_from_base
+IC_host_id -> populate_listing_from_base
+IC_location_id -> populate_listing_from_base
+IC_room_type_id -> populate_listing_from_base
+populate_review_summary_from_base -> sql_review_summary_table
+populate_review_summary_from_base -> IC_review_summary_id
+sql_basetable -> populate_review_summary_from_base
+connection -> populate_review_summary_from_base
+sql_create_review_summary_table_statement -> populate_review_summary_from_base
+IC_listing_id -> populate_review_summary_from_base
+retrieve_dataset_from_tables_with_ics -> output_to_sql_notebook
+connection -> retrieve_dataset_from_tables_with_ics
+sql_host_table -> retrieve_dataset_from_tables_with_ics
+sql_location_table -> retrieve_dataset_from_tables_with_ics
+sql_listing_table -> retrieve_dataset_from_tables_with_ics
+sql_room_type_table -> retrieve_dataset_from_tables_with_ics
+sql_review_summary_table -> retrieve_dataset_from_tables_with_ics
+}}
+subgraph cluster_input_ports_group_outer { label=""; color=white
+subgraph cluster_input_ports_group_inner { label=""; color=white
+node[shape=circle style="rounded,filled" fillcolor="#FFFFFF" peripheries=1 fontname=Helvetica width=0.2]
+input_from_step2_python_input_port [label=""]
+}}
+subgraph cluster_output_ports_group_outer { label=""; color=white
+subgraph cluster_output_ports_group_inner { label=""; color=white
+node[shape=circle style="rounded,filled" fillcolor="#FFFFFF" peripheries=1 fontname=Helvetica width=0.2]
+output_to_sql_notebook_output_port [label=""]
+}}
+input_from_step2_python_input_port -> input_from_step2_python
+output_to_sql_notebook -> output_to_sql_notebook_output_port
+}
